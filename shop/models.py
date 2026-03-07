@@ -39,7 +39,6 @@ class Customer(models.Model):
     birth_date = models.DateField(null=True)
     membership = models.CharField(max_length= 1, choices=MEMEBERSHIP_CHOICES, default='B')
 
-
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
     PAYMENT_STATUS_COMPLETE = 'C'
@@ -65,6 +64,7 @@ class Address(models.Model):
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    zip = models.CharField(default='00-000', max_length=6)
 
 class Cart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
