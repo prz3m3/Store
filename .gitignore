@@ -1,0 +1,49 @@
+# environment variables
+.env
+.env.*
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual environments
+venv/
+.venv/
+env/
+
+# pipenv
+Pipfile.lock
+
+# django
+db.sqlite3
+media/
+staticfiles/
+
+# migrations cache
+*.log
+
+# vscode
+.vscode/
+
+# mac / linux śmieci
+.DS_Store
+Thumbs.db
+
+# python build
+build/
+dist/
+*.egg-info/
+
+# test / coverage
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+
+# pytest
+.pytest_cache/
+
+staticfiles/
