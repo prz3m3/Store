@@ -16,7 +16,7 @@ class Collection (models.Model):
         ordering = ['title']
 
 class Product(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255) 
     slug = models.SlugField()
     description = models.TextField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -39,9 +39,9 @@ class Customer(models.Model):
     MEMBERSHIP_SILVER = 'S'
     MEMBERSHIP_GOLD = 'G'
     
-    MEMEBERSHIP_CHOICES = [
+    MEMBERSHIP_CHOICES = [
         (MEMBERSHIP_BRONZE, 'Bronze'),
-        (MEMBERSHIP_SILVER, 'Sliver'),
+        (MEMBERSHIP_SILVER, 'Silver'),
         (MEMBERSHIP_GOLD, 'Golden'),
     ]
     first_name = models.TextField(max_length=255)
@@ -49,7 +49,11 @@ class Customer(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
-    membership = models.CharField(max_length= 1, choices=MEMEBERSHIP_CHOICES, default='B')
+    membership = models.CharField(max_length= 1, choices=MEMBERSHIP_CHOICES, default='B')
+
+    def __str__(self):
+        return self.last_name
+
 
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
