@@ -8,6 +8,12 @@ class Promotion(models.Model):
 class Collection (models.Model):
     title = models.TextField(max_length= 255)
     featured_products = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+')
+    
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['title']
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
@@ -18,6 +24,12 @@ class Product(models.Model):
     last_update = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT )
     promotion = models.ManyToManyField(Promotion, related_name='products')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ['title']
 
 class Item (models.Model):
     name = models.TextField( max_length= 255)

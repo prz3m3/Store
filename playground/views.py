@@ -1,12 +1,9 @@
 from django.shortcuts import render
-from django.core.exceptions import ObjectDoesNotExist
-from shop.models import Product
+from django.contrib.contenttypes.models import ContentType
+from shop.models import Collection, Product
+from tags.models import TaggedItem 
 
 # Create your views here.
 def say_hello(request):
-    try:
-        queryset = Product.objects.filter()
-    except ObjectDoesNotExist:
-        pass
-
-    return render(request, 'hello.html', {'name': "Przemek", 'products':list(queryset)})
+    
+    return render(request, 'hello.html', {'name': "Przemek"})
