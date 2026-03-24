@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shop', '0007_alter_customer_options_alter_product_description'),
+        ('shop', '0006_Correction_typo'),
     ]
 
     operations = [
